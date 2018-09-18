@@ -1,0 +1,56 @@
+﻿@model IEnumerable<SalesManagementSys.Models.Product>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Products</h2>
+
+@Html.ActionLink("New Product", "New", "Products", null, new { @class = "btn btn-primary" })
+<br />
+@if (!Model.Any())
+{
+    <p>We don't have any products yet.</p>
+}
+else
+{
+    <br />
+    <table id="products" class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Unit Price</th>
+                <th>Size</th>
+                <th>Date Created</th>
+                <th>Category</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var product in Model)
+            {
+                <tr>
+                    <td>@product.ProductID</td>
+                    <td>@Html.ActionLink(product.ProductName, "Edit", "Products", new { id = product.ProductID }, null)</td>
+                    <td>@product.ProductDescription</td>
+                    <td>Kshs @product.UnitPrice</td>
+                    <td>@product.Size gram</td>
+                    <td>@product.CreatedOn</td>
+                    <td>@product.ProductCategory.Category</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+@section scripts
+{
+    <script>
+        $(document).ready(function () {
+            $("#products").DataTable();
+
+        })
+    </script>
+}
+
+

@@ -79,6 +79,9 @@ namespace SalesManagementSys.Models
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
+        [StringLength(15)]
+        [Display(Name = "Phone Number")]
+        public string PhoneNo { get; set; }
     }
 
     public class ResetPasswordViewModel

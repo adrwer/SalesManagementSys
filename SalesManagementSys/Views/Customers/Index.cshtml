@@ -7,26 +7,56 @@
 
 <h2>Customers</h2>
 
-@if (!Model.Any())
+@Html.ActionLink("New Customer", "New", "Customers",null, new { @class = "btn btn-primary" })
+<br />
+@if(!Model.Any())
 {
     <p>We don't have any customers yet.</p>
 }
 else
 {
-    <table class="table table-bordered table-hover">
+    <br />
+    <table id="customers" class="table table-bordered table-hover">
         <thead>
             <tr>
-                <th>Customer</th>
+                <th>ID</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Address</th>
+                <th>State</th>
+                <th>Street</th>
+                <th>Mobile Number</th>
+                <th>Date Created</th>
+                <th>Delete</th>
             </tr>
         </thead>
         <tbody>
             @foreach (var customer in Model)
             {
                 <tr>
-                    <td>@Html.ActionLink(customer.FirstName, "Details", "Customers", new { id = customer.CustomerID }, null)</td>
+                    <td>@customer.CustomerID</td>
+                    <td>@Html.ActionLink(customer.FirstName, "Edit", "Customers", new { id = customer.CustomerID }, null)</td>
+                    <td>@customer.LastName</td>
+                    <td>@customer.Address</td>
+                    <td>@customer.State</td>
+                    <td>@customer.Street</td>
+                    <td>@customer.MobileNo</td>
+                    <td>@customer.CreatedOn</td>
+                    <td>@Html.ActionLink("Delete", "Delete", "Customers", new { id = customer.CustomerID }, null)</td>
+                
                 </tr>
             }
         </tbody>
     </table>
+}
+
+@section scripts
+{
+    <script>
+        $(document).ready(function () {
+            $("#customers").DataTable();
+
+        })
+    </script>
 }
 

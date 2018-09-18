@@ -1,0 +1,11 @@
+﻿@model SalesManagementSys.Models.Product
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@Model.ProductName</h2>
+<p>Price: Kshs @Model.UnitPrice</p>
+<p>Size: @Model.Size grams</p>
+<p>Date created: @Model.CreatedOn</p>
+

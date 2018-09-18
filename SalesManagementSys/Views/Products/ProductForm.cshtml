@@ -1,0 +1,45 @@
+﻿@model SalesManagementSys.ViewModels.ProductViewModel
+@{
+    ViewBag.Title = Model.Title;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@Model.Title</h2>
+@using (@Html.BeginForm("Save", "Products"))
+{
+    @Html.ValidationSummary()
+    <div class="form-group">
+        @Html.LabelFor(p => p.Product.ProductName)
+        @Html.TextBoxFor(p => p.Product.ProductName, new { @class = "form-control" })
+        @Html.ValidationMessageFor(p => p.Product.ProductName)
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(p => p.Product.ProductDescription)
+        @Html.TextBoxFor(p => p.Product.ProductDescription, new { @class = "form-control" })
+        @Html.ValidationMessageFor(p => p.Product.ProductDescription)
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(p => p.Product.UnitPrice)
+        @Html.TextBoxFor(p => p.Product.UnitPrice, new { @class = "form-control" })
+        @Html.ValidationMessageFor(p => p.Product.UnitPrice)
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(p => p.Product.Size)
+        @Html.TextBoxFor(p => p.Product.Size, new { @class = "form-control" })
+        @Html.ValidationMessageFor(p => p.Product.Size)
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(p => p.Product.ProductCategoryID)
+        @Html.DropDownListFor(p => p.Product.ProductCategoryID, new SelectList(Model.ProductCategory,"ProductCategoryID", "Category"),"Select Product Category", new { @class = "form-control" })
+        @Html.ValidationMessageFor(p => p.Product.ProductCategoryID)
+    </div>
+
+    @Html.HiddenFor(p => p.Product.ProductID)
+    @Html.AntiForgeryToken()
+    <button type="submit" class="btn btn-primary">Save</button>
+}
+

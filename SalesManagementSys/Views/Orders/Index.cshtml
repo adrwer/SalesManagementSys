@@ -1,0 +1,62 @@
+﻿@model IEnumerable<SalesManagementSys.Models.Order>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Orders</h2>
+
+@if (!Model.Any())
+{
+    <p>We don't have any orders yet.</p>
+}
+else
+{
+    <br />
+    <table id="orders" class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>OrderID</th>
+                <th>ProductID</th>
+                <th>CustomerID</th>
+                <th>Quantity</th>
+                <th>Order Total</th>
+                <th>Unit Price</th>
+                <th>Order Date</th>
+                <th>Process Order</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var order in Model)
+            {
+                <tr>
+                    <td>@order.OrderID</td>
+                    <td>@order.ProductID</td>
+                    <td>@order.CustomerID</td>
+                    <td>@order.Quantity</td>
+                    <td>@order.OrderTotal</td>
+                    <td>@order.UnitPrice</td>
+                    <td>@order.OrderDate</td>
+                    <td>@Html.ActionLink("Process", "Process", "Orders", new { id = order.OrderID }, new { @id = "process"})</td>
+                    <td>@Html.ActionLink("Delete", "Delete", "Orders", new { id = order.OrderID }, null)</td>
+
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@section scripts
+{
+    <script>
+        $(document).ready(function () {
+            $("#orders").DataTable();
+            $("#process").click(function () {
+                $("#process").attr("disabled");
+            });
+        })
+    </script>
+
+
+}
