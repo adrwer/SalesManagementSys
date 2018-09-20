@@ -107,3 +107,4 @@ C:\Users\Werimo-PC\documents\visual studio 2015\Projects\SalesManagementSys\Sale
 C:\Users\Werimo-PC\documents\visual studio 2015\Projects\SalesManagementSys\SalesManagementSys\obj\Debug\SalesManagementSys.Migrations.UpdateCustomers1.resources
 C:\Users\Werimo-PC\documents\visual studio 2015\Projects\SalesManagementSys\SalesManagementSys\obj\Debug\SalesManagementSys.Migrations.UpdateCustomers2.resources
 C:\Users\Werimo-PC\documents\visual studio 2015\Projects\SalesManagementSys\SalesManagementSys\obj\Debug\SalesManagementSys.Migrations.UpdateCustomers3.resources
+C:\Users\Werimo-PC\documents\visual studio 2015\Projects\SalesManagementSys\SalesManagementSys\obj\Debug\SalesManagementSys.Migrations.EditedCustomerAnnotation.resources

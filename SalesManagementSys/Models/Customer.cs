@@ -26,7 +26,7 @@ namespace SalesManagementSys.Models
         public string MobileNo { get; set; }
         [StringLength(15)]
         public string PhoneNo { get; set; }
-        public DateTime CreatedOn { get; set; }
+        public DateTime? CreatedOn { get; set; }
 
 
     }

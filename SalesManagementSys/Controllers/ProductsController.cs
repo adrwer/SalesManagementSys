@@ -85,7 +85,7 @@ namespace SalesManagementSys.Controllers
                
             else
             {
-                var productinDb = _context.Products.Single(c => c.ProductID == product.ProductID);
+                var productinDb = _context.Products.Single(p => p.ProductID == product.ProductID);
 
                 productinDb.ProductName = product.ProductName;
                 productinDb.ProductDescription = product.ProductDescription;
